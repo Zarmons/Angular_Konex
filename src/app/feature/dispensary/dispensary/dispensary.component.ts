@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class DispensaryComponent {
 
+    display: boolean = false;
+
+    showDialog() {
+        this.display = true;
+    }
 }
