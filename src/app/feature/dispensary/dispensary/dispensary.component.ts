@@ -28,14 +28,14 @@ export class DispensaryComponent {
   }
 
   getMedicamentos() {
-    this.dispensaryService.get().subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    // this.dispensaryService.get().subscribe(
+    //   res => {
+    //     console.log(res);
+    //   },
+    //   err => {
+    //     console.log(err);
+    //   }
+    // );
   }
 
   onData() {
