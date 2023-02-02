@@ -10,7 +10,6 @@ import { Dispensary } from '../shared/models/dispensary';
 export class DispensaryComponent {
   display: boolean = false;
   columns: any[] = [];
-  loading: boolean = true;
   @ViewChild('dt', { static: false }) dt: any;
 
   constructor(private dispensaryService: DispensaryService) {}
@@ -24,7 +23,6 @@ export class DispensaryComponent {
       { field: 'stock', header: 'Cantidad en stock' },
       { field: 'value', header: 'Valor unitario' },
     ];
-    this.loading = false;
     console.log(this.dispensarys.values)
     // this.getMedicamentos();
   }
