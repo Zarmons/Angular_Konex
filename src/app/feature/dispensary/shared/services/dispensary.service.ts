@@ -15,4 +15,18 @@ export class DispensaryService {
   get() {
     return this.http.get(this.url+'random', this.httpOptions);
   }
+
+  post(data: any) {
+    return this.http.post(this.url+'/random'+ `${data}`, this.httpOptions);
+  }
+
+  update(data: any) {
+    return this.http.put(this.url+`/random${data.id}=${data}`, this.httpOptions);
+  }
+
+  delete(id: string) {
+    return this.http.delete(this.url+ `/random${id}`, this.httpOptions);
+  }
+
+
 }
