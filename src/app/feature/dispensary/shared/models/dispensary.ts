@@ -1,10 +1,8 @@
 export interface Dispensary {
-  // class medicamento {
-  //   name: string = '';
-  //   laboratoy: string = ''
-  //   manufactureDate: string = '';
-  //   expirationDate: string = '';
-  //   value: number = 0;
-  //   quantity: number = 0;
-  // }
+  name: string,
+  laboratory: string,
+  expiration: string,
+  manufacture: string,
+  stock: number,
+  value: number,
 }

@@ -14,73 +14,69 @@
         ></button>
       </ng-template>
     </p-toolbar>
-    <p-table #dt>
+
+    <p-table #dt [columns]="columns" [value]="dispensarys" [globalFilterFields]="['name','laboratory','expiration','manufacture']"
+      [rows]="10" [paginator]="true" [tableStyle]="{ 'min-width': '75rem' }" [rowHover]="true" dataKey="id" currentPageReportTemplate="Mostrando  {first} a {last} de {totalRecords} entradas"
+      [showCurrentPageReport]="true">
       <ng-template pTemplate="caption">
         <div class="flex align-items-center justify-content-between">
           <span class="p-input-icon-left">
             <i class="pi pi-search"></i>
-            <input type="text" pInputText placeholder="Buscador" />
+            <input type="text" pInputText placeholder="Buscador" (input)="dt.filterGlobal($event.target, 'contains')" />
           </span>
         </div>
       </ng-template>
+
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="name">
-            Nombre
-            <p-sortIcon field="name"></p-sortIcon>
-          </th>
-          <th pSortableColumn="laboratory">
-            Laboratorio
-            <p-sortIcon field="laboratory"></p-sortIcon>
-          </th>
-          <th pSortableColumn="manufacture-date">
-            Fecha de fabricación
-            <p-sortIcon field="manufacture-date"></p-sortIcon>
-          </th>
-          <th pSortableColumn="expiration-date">
-            Fecha de vencimiento
-            <p-sortIcon field="expiration-date"></p-sortIcon>
-          </th>
-          <th pSortableColumn="quantity ">
-            Cantidad
-            <p-sortIcon field="quantity "></p-sortIcon>
-          </th>
-          <th pSortableColumn="value">
-            Valor
-            <p-sortIcon field="value"></p-sortIcon>
+          <th pSortableColumn="name" *ngFor="let col of columns">
+            {{ col.header }}
           </th>
           <th>Acciones</th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-product>
+
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr>
-          <td>acetaminofen</td>
-          <td>farmaco</td>
-          <td>22/22/22</td>
-          <td>22/22/23/</td>
-          <td>10</td>
-          <td>1.0000</td>
-          <td>
+          <td *ngFor="let col of columns; index as i">
+            {{ rowData[col.field] }}
+          </td>
+          <td class="table-body-button" >
             <button
-              pButton
-              pRipple
-              icon="pi pi-pencil"
-              class="p-button-rounded p-button-success"
-            ></button>
-            <button
-              pButton
-              pRipple
-              icon="pi pi-trash"
-              class="p-button-rounded p-button-warning"
-            ></button>
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-info"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-dollar"
+            class="p-button-rounded p-button-warning"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-danger"
+            (click)="deleteDrug(columns.length)"
+          ></button>
           </td>
         </tr>
       </ng-template>
     </p-table>
   </div>
-  <p-dialog header="Nuevo medicamento" [(visible)]="display" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false" class="dialog-header">
-    <!-- <form #myForm="ngForm"> -->
-      <div class="container-form">
+  <p-dialog
+    header="Nuevo medicamento"
+    [(visible)]="display"
+    [modal]="true"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
+    class="dialog-header"
+  >
+    <!-- <form (ngSubmit)="onData()" #myForm="ngForm"> -->
+    <!-- <div class="container-form">
         <div class="rows">
           <span class="p-float-label">
             <input id="name" type="text" pInputText [(ngModel)]="data.name"/>
@@ -113,7 +109,7 @@
       <ng-template pTemplate="footer">
         <p-button icon="pi pi-check" (click)="display = false"  label="Ingresar" styleClass="p-button-success" type="submit"></p-button>
         <p-button icon="pi pi-times" (click)="display = false" label="No ingresar" styleClass="p-button-danger" type="button"></p-button>
-      </ng-template>
-      <!-- </form> -->
+      </ng-template> -->
+    <!-- </form> -->
   </p-dialog>
 </div>
