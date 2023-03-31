@@ -74,41 +74,41 @@
     [resizable]="false"
     class="dialog-header"
   >
-    <!-- <form (ngSubmit)="onData()" #myForm="ngForm"> -->
+    <form (ngSubmit)="onData()" #myForm="ngForm">
     <div class="container-form">
         <div class="rows">
           <span class="p-float-label">
-            <input id="name" type="text" pInputText [(ngModel)]="data.name"/>
+            <input id="name" type="text" pInputText />
             <label for="name">Nombre</label>
           </span>
           <span class="p-float-label">
-            <input id="laboratory" type="text" pInputText  [(ngModel)]="data.laboratory"/>
+            <input id="laboratory" type="text" pInputText  />
             <label for="laboratory">Laboratorio</label>
           </span>
         </div>
         <div class="rows">
           <div class="p-float-label">
-            <p-calendar [showIcon]="true" inputId="icon" placeholder="Fecha de fabricación" for="manufacture" [(ngModel)]="data.manufacture"></p-calendar>
+            <p-calendar [showIcon]="true" inputId="icon" placeholder="Fecha de fabricación" for="manufacture" ></p-calendar>
           </div>
           <div class="p-float-label">
-            <p-calendar [showIcon]="true" inputId="icon" placeholder="Fecha de vencimiento" for="expiration" [(ngModel)]="data.expiration"></p-calendar>
+            <p-calendar [showIcon]="true" inputId="icon" placeholder="Fecha de vencimiento" for="expiration" ></p-calendar>
           </div>
         </div>
           <div class="rows">
             <div class="p-float-label">
-              <p-inputNumber [showButtons]="true" inputId="stacked" mode="currency" currency="COP" placeholder="Cantidad" for="quantity" [(ngModel)]="data.quantity">
+              <p-inputNumber [showButtons]="true" inputId="stacked" mode="currency" currency="COP" placeholder="Cantidad" for="quantity" >
               </p-inputNumber>
           </div>
           <div class="p-float-label">
-            <p-inputNumber mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="100" placeholder="Valor" for="value" [(ngModel)]="data.value">
+            <p-inputNumber mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="100" placeholder="Valor" for="value" >
             </p-inputNumber>
           </div>
         </div>
       </div>
-      <ng-template pTemplate="footer">
-        <p-button icon="pi pi-check" (click)="display = false"  label="Ingresar" styleClass="p-button-success" type="submit"></p-button>
-        <p-button icon="pi pi-times" (click)="display = false" label="No ingresar" styleClass="p-button-danger" type="button"></p-button>
-      </ng-template>
-    <!-- </form> -->
+    </form>
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="display = false"  label="Ingresar" styleClass="p-button-success" type="submit"></p-button>
+      <p-button icon="pi pi-times" (click)="display = false" label="No ingresar" styleClass="p-button-danger" type="button"></p-button>
+    </ng-template>
   </p-dialog>
 </div>
