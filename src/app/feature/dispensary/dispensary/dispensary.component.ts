@@ -23,7 +23,6 @@ export class DispensaryComponent {
       { field: 'stock', header: 'Cantidad en stock' },
       { field: 'value', header: 'Valor unitario' },
     ];
-    console.log(this.dispensarys.values)
     // this.getMedicamentos();
   }
 
