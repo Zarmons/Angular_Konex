@@ -45,70 +45,35 @@
       </ng-template>
     </p-table>
   </div>
-<<<<<<< HEAD
   <p-dialog header="Nuevo medicamento" [(visible)]="display" [modal]="true" [style]="{ width: '50vw' }"
     [draggable]="false" [resizable]="false" class="dialog-header">
-=======
-  <p-dialog
-    header="Nuevo medicamento"
-    [(visible)]="display"
-    [modal]="true"
-    [style]="{ width: '50vw' }"
-    [draggable]="false"
-    [resizable]="false"
-    class="dialog-header"
-  >
->>>>>>> origin/creater_form
     <form (ngSubmit)="onData()" #myForm="ngForm">
     <div class="container-form">
         <div class="rows">
           <span class="p-float-label">
-<<<<<<< HEAD
             <input id="name" type="text" pInputText/>
             <label for="name">Nombre del medicamento</label>
           </span>
           <span class="p-float-label">
             <input id="laboratory" type="text" pInputText />
-=======
-            <input id="name" type="text" pInputText />
-            <label for="name">Nombre</label>
-          </span>
-          <span class="p-float-label">
-            <input id="laboratory" type="text" pInputText  />
->>>>>>> origin/creater_form
             <label for="laboratory">Laboratorio</label>
           </span>
         </div>
         <div class="rows">
           <div class="p-float-label">
-<<<<<<< HEAD
             <p-calendar [showIcon]="true" inputId="icon" placeholder="Fecha de fabricación" for="manufacture"></p-calendar>
           </div>
           <div class="p-float-label">
             <p-calendar [showIcon]="true" inputId="icon" placeholder="Fecha de vencimiento" for="expiration"></p-calendar>
-=======
-            <p-calendar [showIcon]="true" inputId="icon" placeholder="Fecha de fabricación" for="manufacture" ></p-calendar>
-          </div>
-          <div class="p-float-label">
-            <p-calendar [showIcon]="true" inputId="icon" placeholder="Fecha de vencimiento" for="expiration" ></p-calendar>
->>>>>>> origin/creater_form
           </div>
         </div>
           <div class="rows">
             <div class="p-float-label">
-<<<<<<< HEAD
               <p-inputNumber [showButtons]="true" inputId="stacked" mode="currency" currency="COP" placeholder="Cantidad" for="quantity">
               </p-inputNumber>
           </div>
           <div class="p-float-label">
             <p-inputNumber mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="100" placeholder="Valor" for="value">
-=======
-              <p-inputNumber [showButtons]="true" inputId="stacked" mode="currency" currency="COP" placeholder="Cantidad" for="quantity" >
-              </p-inputNumber>
-          </div>
-          <div class="p-float-label">
-            <p-inputNumber mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="100" placeholder="Valor" for="value" >
->>>>>>> origin/creater_form
             </p-inputNumber>
           </div>
         </div>
@@ -116,11 +81,7 @@
     </form>
     <ng-template pTemplate="footer">
       <p-button icon="pi pi-check" (click)="display = false"  label="Ingresar" styleClass="p-button-success" type="submit"></p-button>
-<<<<<<< HEAD
       <p-button icon="pi pi-times" (click)="display = false" label="Cancelar" styleClass="p-button-danger" type="button"></p-button>
-=======
-      <p-button icon="pi pi-times" (click)="display = false" label="No ingresar" styleClass="p-button-danger" type="button"></p-button>
->>>>>>> origin/creater_form
     </ng-template>
   </p-dialog>
 </div>
