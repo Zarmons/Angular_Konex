@@ -23,7 +23,7 @@ export class DispensaryComponent {
   //   value: 0,
   // };
 
-  public formDispensary = new FormGroup <Dispensary>({
+  public DispensaryForm = new FormGroup <Dispensary>({
     name: new FormControl('', {nonNullable: true}),
     laboratory:new FormControl('', {nonNullable: true}),
     expiration:new FormControl('', {nonNullable: true}),
@@ -160,7 +160,8 @@ export class DispensaryComponent {
   }
 
   onData() {
-    console.log(this.formDispensary)
+    this.display = false;
+    console.log(this.DispensaryForm.value)
     // this.dispensarys.push(this.formDispensary)
   }
 
