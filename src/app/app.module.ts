@@ -12,6 +12,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { ToolbarModule } from 'primeng/toolbar';
 import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
+import { ToastModule } from 'primeng/toast';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './shared/layout/nav-bar/nav-bar.component';
@@ -33,7 +34,8 @@ import { DispensaryComponent } from './feature/dispensary/dispensary/dispensary.
     CalendarModule,
     ToolbarModule,
     TableModule,
-    InputTextModule
+    InputTextModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent],

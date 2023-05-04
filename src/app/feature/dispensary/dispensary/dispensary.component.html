@@ -7,19 +7,20 @@
           (click)="showDialog()"></button>
       </ng-template>
     </p-toolbar>
-    <!-- [value]="dispensarys" -->
-    <p-table #dt [columns]="columns"
+
+    <p-table #dt2 [columns]="columns" [value]="dispensarys"
       [globalFilterFields]="['name','laboratory','expiration','manufacture']" [rows]="10" [paginator]="true"
       [tableStyle]="{ 'min-width': '75rem' }" [rowHover]="true" dataKey="id"
-      currentPageReportTemplate="Mostrando  {first} a {last} de {totalRecords} entradas" [showCurrentPageReport]="true">
-      <ng-template pTemplate="caption">
-        <div class="flex align-items-center justify-content-between">
-          <span class="p-input-icon-left">
-            <i class="pi pi-search"></i>
-            <input type="text" pInputText placeholder="Buscador" (input)="dt.filterGlobal($event.target, 'contains')" />
-          </span>
+      currentPageReportTemplate="Mostrando  {dispensarys.length} a {last} de {totalRecords} entradas"
+      [showCurrentPageReport]="true">
+      <!-- <ng-template pTemplate="caption">
+        <div class="flex">
+            <span class="p-input-icon-left ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt2.filterGlobal($event.target.dispensarys, 'contains')" placeholder="Search keyword" />
+            </span>
         </div>
-      </ng-template>
+    </ng-template> -->
 
       <ng-template pTemplate="header">
         <tr>
@@ -48,40 +49,50 @@
   <p-dialog header="Nuevo medicamento" [(visible)]="display" [modal]="true" [style]="{ width: '50vw' }"
     [draggable]="false" [resizable]="false" class="dialog-header">
     <form [formGroup]="DispensaryForm">
-    <div class="container-form">
+      <div class="container-form">
         <div class="rows">
           <span class="p-float-label">
-            <input id="name" type="text" pInputText name="name" formControlName="name"/>
+            <input id="name" type="text" pInputText name="name" formControlName="name" />
             <label for="name">Nombre del medicamento</label>
           </span>
           <span class="p-float-label">
-            <input id="laboratory" type="text" pInputText name="laboratory" formControlName="laboratory"/>
+            <input id="laboratory" type="text" pInputText name="laboratory" formControlName="laboratory" />
             <label for="laboratory">Laboratorio</label>
           </span>
         </div>
         <div class="rows">
           <div class="p-float-label">
-            <p-calendar [showIcon]="true" inputId="icon" placeholder="Fecha de fabricación" for="manufacture" name="manufacture" formControlName="manufacture"></p-calendar>
+            <p-calendar [showIcon]="true" inputId="icon" placeholder="Fecha de fabricación" for="manufacture"
+              name="manufacture" formControlName="manufacture"></p-calendar>
           </div>
           <div class="p-float-label">
-            <p-calendar [showIcon]="true" inputId="icon" placeholder="Fecha de vencimiento" for="expiration" name ="expiration" formControlName="expiration"></p-calendar>
+            <p-calendar [showIcon]="true" inputId="icon" placeholder="Fecha de vencimiento" for="expiration"
+              name="expiration" formControlName="expiration"></p-calendar>
           </div>
         </div>
-          <div class="rows">
-            <div class="p-float-label">
-              <p-inputNumber [showButtons]="true" inputId="stacked" mode="currency" currency="COP" placeholder="Cantidad" for="quantity" name="stock" formControlName="stock">
-              </p-inputNumber>
+        <div class="rows">
+          <div class="p-float-label">
+            <p-inputNumber [showButtons]="true" inputId="stacked" mode="currency" currency="COP" placeholder="Cantidad"
+              for="quantity" name="stock" formControlName="stock">
+            </p-inputNumber>
           </div>
           <div class="p-float-label">
-            <p-inputNumber mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="100" placeholder="Valor" for="value" name="value"formControlName="value">
+            <p-inputNumber mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="100"
+              placeholder="Valor" for="value" name="value" formControlName="value">
             </p-inputNumber>
           </div>
         </div>
       </div>
     </form>
     <ng-template pTemplate="footer">
-      <p-button icon="pi pi-check" (click)="onData()"  label="Ingresar" styleClass="p-button-success" type="submit"></p-button>
-      <p-button icon="pi pi-times" (click)="display = false" label="Cancelar" styleClass="p-button-danger" type="button"></p-button>
+
+      <p-button icon="pi pi-check" (click)="onData()" label="Ingresar" styleClass="p-button-success"
+        type="submit"></p-button>
+      <p-button icon="pi pi-times" (click)="display = false" label="Cancelar" styleClass="p-button-danger"
+        type="button"></p-button>
     </ng-template>
   </p-dialog>
+
+
+  <p-toast [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>
 </div>

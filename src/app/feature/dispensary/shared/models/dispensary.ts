@@ -1,6 +1,5 @@
 import { FormControl } from '@angular/forms';
 
-
 export interface Dispensary {
   name: FormControl<string>,
   laboratory: FormControl<string>,
