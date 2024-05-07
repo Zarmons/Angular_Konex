@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { FormGroup, FormControl, Validator, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl, Validator, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Dispensary } from '../shared/models/dispensary';
 import { MessageService } from 'primeng/api';
 
@@ -16,6 +16,7 @@ export class DispensaryComponent {
   columns: any[] = [];
   display: boolean = false;
   dispensarys: Dispensary[] = [];
+  DispensaryForm! : FormGroup;
 
   data: any = ""
 
@@ -25,30 +26,30 @@ export class DispensaryComponent {
 
   ngOnInit() {
     this.columns = [
-      { field: 'name', header: 'Nombre' },
+      { field: 'name', header: 'Nombre del Medicamento' },
       { field: 'laboratory', header: 'Laboratorio' },
-      { field: 'expiration', header: 'Fecha de fabricación' },
-      { field: 'manufacture', header: 'Fecha de vencimiento' },
-      { field: 'stock', header: 'Cantidad en stock' },
-      { field: 'value', header: 'Valor unitario' },
+      { field: 'expiration', header: 'Fecha de Fabricación' },
+      { field: 'manufacture', header: 'Fecha de Vencimiento' },
+      { field: 'stock', header: 'Cantidad en Stock' },
+      { field: 'value', header: 'Valor Unitario' },
     ];
+    this.DispensaryForm = new FormGroup <Dispensary>({
+      name: new FormControl('', {nonNullable: true}),
+      laboratory:new FormControl('', {nonNullable: true}),
+      expiration:new FormControl('', {nonNullable: true}),
+      manufacture:new FormControl('', {nonNullable: true}),
+      stock: new FormControl(0, {nonNullable: true}),
+      value: new FormControl(0, {nonNullable: true}),
+    })
   }
 
-  public DispensaryForm = new FormGroup <Dispensary>({
-    name: new FormControl('', {nonNullable: true}),
-    laboratory:new FormControl('', {nonNullable: true}),
-    expiration:new FormControl('', {nonNullable: true}),
-    manufacture:new FormControl('', {nonNullable: true}),
-    stock: new FormControl(0, {nonNullable: true}),
-    value: new FormControl(0, {nonNullable: true}),
-  })
 
   showDialog() {
     this.display = true;
   }
 
-  onData() {
-    this.messageService.add({ severity: 'success', summary: 'Agregado', detail: 'Medicamento agregado al dispensario' });
+  createDrug() {
+    this.messageService.add({ severity: 'success', summary: 'Agregado', detail: 'El medicamento fue agregado con éxito' });
     this.display = false;
     console.log(this.DispensaryForm.value)
     this.data = this.DispensaryForm.value
@@ -57,9 +58,12 @@ export class DispensaryComponent {
     console.log('-->', this.dispensarys );
   }
 
-  deleteDrug(index: number) {
-    console.log('-->', index );
+  deleteDrug() {
+    let index = this.dispensarys.findIndex(x => x.name)
     this.dispensarys.splice(index, 1);
-    this.messageService.add({ severity: 'success', summary: 'Eliminado', detail: 'Medicamento Eliminado del dispensario' });
+    this.messageService.add({ severity: 'success', summary: 'Eliminado', detail: 'El medicamento fue eliminado con éxito' });
+  }
+
+  editDrug() {
   }
 }

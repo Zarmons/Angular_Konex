@@ -3,7 +3,7 @@
   <div class="card">
     <p-toolbar styleClass="mb-4 gap-2">
       <ng-template pTemplate="left">
-        <button pButton pRipple type="button" icon="pi pi-plus" label="Nuevo" class="p-button-success"
+        <button pButton pRipple type="button" icon="pi pi-plus" label="Crear" class="p-button-success"
           (click)="showDialog()"></button>
       </ng-template>
     </p-toolbar>
@@ -38,15 +38,16 @@
           </td>
           <td class="table-body-button">
             <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-info"></button>
-            <button pButton pRipple icon="pi pi-dollar" class="p-button-rounded p-button-warning"></button>
-            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
-              (click)="deleteDrug(columns.length)"></button>
+            <button pButton pRipple icon="pi pi-dollar" class="p-button-rounded p-button-info"
+            (click)="editDrug()"></button>
+            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-info"
+            (click)="deleteDrug()"></button>
           </td>
         </tr>
       </ng-template>
     </p-table>
   </div>
-  <p-dialog header="Nuevo medicamento" [(visible)]="display" [modal]="true" [style]="{ width: '50vw' }"
+  <p-dialog header="Crear Medicamento" [(visible)]="display" [modal]="true" [style]="{ width: '50vw' }"
     [draggable]="false" [resizable]="false" class="dialog-header">
     <form [formGroup]="DispensaryForm">
       <div class="container-form">
@@ -64,32 +65,33 @@
           <div class="p-float-label">
             <p-calendar [showIcon]="true" inputId="icon" placeholder="Fecha de fabricación" for="manufacture"
               name="manufacture" formControlName="manufacture"></p-calendar>
+              <label for="name">Fecha de Fabricación</label>
           </div>
           <div class="p-float-label">
             <p-calendar [showIcon]="true" inputId="icon" placeholder="Fecha de vencimiento" for="expiration"
               name="expiration" formControlName="expiration"></p-calendar>
+              <label for="name">Fecha de Vencimiento</label>
           </div>
         </div>
         <div class="rows">
           <div class="p-float-label">
-            <p-inputNumber [showButtons]="true" inputId="stacked" mode="currency" currency="COP" placeholder="Cantidad"
-              for="quantity" name="stock" formControlName="stock">
-            </p-inputNumber>
-          </div>
-          <div class="p-float-label">
             <p-inputNumber mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="100"
               placeholder="Valor" for="value" name="value" formControlName="value">
             </p-inputNumber>
+            <label for="name">Cantidad en Stock</label>
+          </div>
+          <div class="p-float-label">
+            <p-inputNumber [showButtons]="true" inputId="stacked" mode="currency" currency="COP" placeholder="Cantidad"
+              for="quantity" name="stock" formControlName="stock">
+            </p-inputNumber>
+            <label for="name">Valor Unitario</label>
           </div>
         </div>
       </div>
     </form>
     <ng-template pTemplate="footer">
-
-      <p-button icon="pi pi-check" (click)="onData()" label="Ingresar" styleClass="p-button-success"
-        type="submit"></p-button>
-      <p-button icon="pi pi-times" (click)="display = false" label="Cancelar" styleClass="p-button-danger"
-        type="button"></p-button>
+      <p-button icon="pi pi-times" (click)="display = false" label="Cancelar" styleClass="p-button-danger" type="button"></p-button>
+      <p-button icon="pi pi-check" (click)="createDrug()" label="Guardar" [disabled]="DispensaryForm.valid" styleClass="p-button-success" type="submit"></p-button>
     </ng-template>
   </p-dialog>
 
