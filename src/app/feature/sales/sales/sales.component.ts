@@ -15,10 +15,10 @@ export class SalesComponent {
 
   ngOnInit() {
     this.columns = [
-      { field: 'dateTime', header: 'Fecha y hora' },
-      { field: 'name', header: 'Nombre' },
+      { field: 'dateTime', header: 'Fecha y Hora' },
+      { field: 'name', header: 'Nombre del Medicamento' },
       { field: 'quantity', header: 'Cantidad' },
-      { field: 'valueUnit', header: 'Valor unitario' },
+      { field: 'valueUnit', header: 'Valor Unitario' },
       { field: 'total', header: 'Total' },
     ];
     this.messages = [
