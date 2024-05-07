@@ -13,14 +13,16 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
+import { MessagesModule } from 'primeng/messages';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './shared/layout/nav-bar/nav-bar.component';
 import { DispensaryComponent } from './feature/dispensary/dispensary/dispensary.component';
+import { SalesComponent } from './feature/sales/sales/sales.component'
 
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent,DispensaryComponent ],
+  declarations: [AppComponent, NavBarComponent,DispensaryComponent, SalesComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,7 +37,8 @@ import { DispensaryComponent } from './feature/dispensary/dispensary/dispensary.
     ToolbarModule,
     TableModule,
     InputTextModule,
-    ToastModule
+    ToastModule,
+    MessagesModule
   ],
   providers: [],
   bootstrap: [AppComponent],

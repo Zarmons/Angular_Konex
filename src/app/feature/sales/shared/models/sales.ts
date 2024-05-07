@@ -1,7 +1,10 @@
+import { FormControl } from '@angular/forms';
+
 export interface Sales {
-  dateTime: string,
-  name: string,
-  quantity: number,
-  valueUnit: number,
-  total: number,
+  name: FormControl<string>,
+  dateTime: FormControl<string>,
+  quantity: FormControl<number>,
+  total: FormControl<number>,
+  valueUnit: FormControl<number>,
 }
+

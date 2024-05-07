@@ -8,6 +8,12 @@
   padding: 10px;
 }
 
+.container-btn {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
 .title {
   text-align: center;
   margin-top: 60px;
@@ -31,4 +37,38 @@
 .table-body-button {
   display: flex;
   justify-content: space-between;
+}
+
+.container-form-sell {
+  display: flex;
+  justify-content: space-evenly;
+  column-gap: 8px;
+}
+
+.rows-sell {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 8px;
+}
+
+.container {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+ }
+
+.container-info-sell {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background:#EDF0F5;
+  padding: 16px;
+  border-radius: 16px;
+  gap: 8.7px;
+}
+
+.container-stock {
+  display: flex;
+  justify-content: center;
 }

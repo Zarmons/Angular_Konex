@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Sales } from '../shared/models/sales';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-sales',
@@ -9,6 +10,8 @@ import { Sales } from '../shared/models/sales';
 export class SalesComponent {
 
   columns: any[] = [];
+  sales: Sales[] = [];
+  messages: Message[] = [];
 
   ngOnInit() {
     this.columns = [
@@ -18,15 +21,16 @@ export class SalesComponent {
       { field: 'valueUnit', header: 'Valor unitario' },
       { field: 'total', header: 'Total' },
     ];
+    this.messages = [
+      { severity: 'info', summary: '', detail: 'Haga clic en el botón consultar para cargar toda la información' },
+    ];
   }
 
-  sales: Sales[] = [
-    {
-      dateTime: '01/28/23',
-      name: 'medicamento 1',
-      quantity: 10,
-      valueUnit: 1000,
-      total: 10000,
-    },
-  ]
+  view () {
+    const storedReportFavorite = window.localStorage.getItem('sell')
+    if (storedReportFavorite) {
+    this.sales =JSON.parse(storedReportFavorite);
+    }
+  }
+
 }

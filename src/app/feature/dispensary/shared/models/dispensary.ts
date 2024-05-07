@@ -8,3 +8,11 @@ export interface Dispensary {
   stock: FormControl<number>,
   value: FormControl<number>,
 }
+
+export interface Sales {
+  name: FormControl<string>,
+  dateTime: FormControl<string>,
+  quantity: FormControl<number>,
+  total: FormControl<number>,
+  valueUnit: FormControl<number>,
+}

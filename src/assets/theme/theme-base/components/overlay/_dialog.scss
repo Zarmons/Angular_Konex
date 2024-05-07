@@ -2,7 +2,7 @@
     border-radius: $borderRadius;
     box-shadow: $overlayContainerShadow;
     border: $overlayContentBorder;
-    width: 60% !important;
+    width: auto !important;
     // flex-direction: column; justify-content: center; align-items: center; display: inline-flex;
 
     .p-dialog-header {
